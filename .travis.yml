@@ -1,0 +1,23 @@
+branches:
+  only:
+    - master
+    - /^v[0-9.]+$/
+
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - NAME=zer0i3/imxss
+    - VERSION=${TRAVIS_BRANCH}
+
+script:
+  - docker build -t ${NAME}:${VERSION} image
+  - docker build -t ${NAME}:latest --rm image
+
+after_success:
+  - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin;
+    docker push ${NAME}:${VERSION};
+    docker push ${NAME}:latest;
