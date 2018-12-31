@@ -1,0 +1,14 @@
+version: "3"
+services:
+    web:
+      image: zer0i3/imxss:v1.0
+      restart: always
+      ports:
+        - "8080:8080"
+      environment:
+        - MYSQL_USER=user
+        - MYSQL_USER_PWD=password
+      volumes:
+        - imxssdata:/var/lib/mysql
+volumes:
+  imxssdata:
