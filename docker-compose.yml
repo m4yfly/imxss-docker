@@ -1,7 +1,7 @@
 version: "3"
 services:
     web:
-      image: zer0i3/imxss:v1.0
+      image: zer0i3/imxss:v1.0.1
       restart: always
       ports:
         - "8080:8080"
@@ -10,5 +10,7 @@ services:
         - MYSQL_USER_PWD=password
       volumes:
         - imxssdata:/var/lib/mysql
+        - imxssweb:/opt/tomcat/webapps/ROOT/
 volumes:
   imxssdata:
+  imxssweb:

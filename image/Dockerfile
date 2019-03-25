@@ -1,4 +1,4 @@
-FROM zer0i3/tomcat8-mysql:v1.0.2
+FROM zer0i3/tomcat8-mysql:v1.0.4
 
 MAINTAINER zer0i3 <zer0i3@aliyun.com>
 
@@ -19,3 +19,5 @@ RUN rm -rf /opt/tomcat/webapps/* && \
     mkdir /data && \
     chown -R www-data:www-data /data && \
     rm -rf /tmp/* /var/tmp/*
+
+VOLUME /opt/tomcat/webapps/ROOT/
