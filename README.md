@@ -10,7 +10,7 @@ this only a docker image for imxss based on [tomcat8-mysql](https://hub.docker.c
 Start a container:
 
 ```shell
-docker run -itd -p 8080:8080 --env MYSQL_USER=user --env MYSQL_USER_PWD=password -v imxssdata:/var/lib/mysql zer0i3/imxss
+docker run -itd -p 8080:8080 --env MYSQL_USER=user --env MYSQL_USER_PWD=password -v imxssdata:/var/lib/mysql -v imxssweb:/opt/tomcat/webapps/ROOT/ zer0i3/imxss
 ```
 
 Then access `http://your-ip:8080/install/install.jsp`  to init imxss
